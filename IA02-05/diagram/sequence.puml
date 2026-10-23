@@ -1,0 +1,64 @@
+@startuml
+
+title Messenger System - Sequence Diagram
+
+autonumber
+hide footbox
+
+actor "User" as User
+participant "P1. Account Authentication" as P1
+database "D1. Accounts Storage" as D1
+participant "P4. Group message" as P4
+database "D2. Groups Storage" as D2
+participant "P2. Check Receiver's Status" as P2
+participant "P3. Send message" as P3
+database "D3. Messages Storage" as D3
+actor "Receiver" as Receiver
+
+== Phase 1: Account Authentication ==
+User -> P1: Account verification (FR-01, FR-02, FR-03)
+P1 -> D1: Check user's input (FR-02)
+alt Valid information (FR-02) 
+P1 -> D1: Save user's record (FR-06)
+D1 --> P1: Confirm record
+P1 --> User: Authentication completed, redirect to homepage (FR-06)
+else Invalid information 
+D1 -> P1: Invalid input
+P1 --> User: Warning invalid information, request security question or re-enter . (FR-04, FR-05) 
+end
+
+
+== Phase 2: Individual Message Flow ==
+User -> P2: User send message (FR-07)
+alt Invalid message (FR-09)
+P2 --> User: Warning invalid format, request user to re-enter
+else Valid message
+alt Receiver is Offline
+    P2 -> D3: Store unread message (FR-13)
+else Receiver is Online
+   
+    P2 -> D3: Store message (FR-08)
+    P3 -> Receiver: Send message to receiver (FR-08, FR-14)
+end
+end
+
+
+== Phase 3: Group Management ==
+User -> P4: Form a group / rename (FR-10, FR-11)
+alt Invalid number of members / Invalid group name (FR-10, FR-11)
+P4 --> User: Warning invalid group, request user to form a new group
+else Valid group 
+P4 -> D2: Group's record (FR-10, FR-11)
+D2 --> P4: Confirm group creation
+
+== Phase 4: Group Message Flow ==
+User -> P2: Send message to a group (formed in Phase 3)
+alt Receiver is Offline
+    P2 -> D3: Store unread message (FR-13)
+else Receiver is Online
+    P2 -> P3: Check receiver's status (FR-12)
+    P3 -> D3: Store message history (FR-08)
+    P3 -> Receiver: Send message to receiver (FR-12, FR-14))
+end
+
+@enduml
