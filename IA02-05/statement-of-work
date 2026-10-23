@@ -1,0 +1,182 @@
+# Messenger Application - Statement of Work
+
+​
+
+CPS490 - Capstone I\
+
+IA 02 - Messenger: Statement of Work\
+
+Name: Ngoc Lan Anh Nguyen\
+
+Student ID: 101835036
+
+​
+
+## 1. Project Purpose and Objectives
+
+### 1.1 Purpose
+
+Implement a Messenger application for social communication between people. This is similar to a network platform like Discord, where it provides a private and reliable environment that requires users to sign in and verify their accounts before they can access the chat environment and the chat history.
+
+ ### 1.2 Objectives
+
+For this project, the Client demands the implementation of a communication tool that can:
+
+1. Reliable and private texting between single users.
+
+2. Reliable and private texting between multiple users within a group. 
+
+3.  Account registration and sign-in options.
+
+4.  Account verification and password reset. 
+
+​
+
+## 2. Stakeholders
+
+- The client (the party that requested a software developer to implement Messenger): provides requirements and demands for the platform. Review and evaluate the Messenger if it reaches their demands. 
+
+- The software developers: design and implement the Messenger platform. Review and test Messenger implementation and its functions before delivering it to the end users.
+
+- The end users: register accounts and use Messenger as a communication tool to deliver and receive messages.
+
+​
+
+## 3. Scope
+
+### 3.1 In scope
+
+- User account registration and verification. 
+
+- Messages delivered between two users and multiple users. 
+
+- If users are currently logged out while messages are delivered, the system will send them when users log in and mark them as unread.
+
+- Database for chat history and storing any unread messages during the time users are logged out. 
+
+### 3.2 Out of scope
+
+- Video or voice calling with other users.
+
+- Voice chat with other users.
+
+- Built-in games.
+
+​
+
+## 4. Deliverables
+
+| Deliverables | Location | Description |
+
+|--------|-----------|---------|
+
+| Statement of work | `docs/sow.md` | Description of what included in the project.|
+
+| Messenger source code | `src/Messenger` | The source code for Messenger app
+
+| User guide |  `docs/README.md`| The instructions for users to implement the app and run it on their devices.|
+
+​
+
+## 5. Assumptions, constraints, and dependencies
+
+### 5.1 Assumptions
+
+Users registration followed accepted format and symbols.
+
+Users log-in enter no more than 3 times incorrect information.
+
+Users implement correctly following the user guide.
+
+There are limited users using the platform.  
+
+The client requires only text messaging 
+
+Groups have a small number of members (around 10 users). 
+
+### 5.2 Constraints
+
+The Messenger application finished and committed to the repository no later than November 2. 
+
+All work must be committed and pushed to GitHub. 
+
+​
+
+### 5.3 Dependencies
+
+Access to the course GitHub repository to commit and push projects.
+
+Database resources  
+
+A working environment to implement the project (Node.js, etc.)
+
+## 6. Milestones and schedule
+
+​
+
+```mermaid
+
+gantt
+
+    title Messenger's Schedule and Milestones
+
+    dateFormat YYYY-MM-DD
+
+    axisFormat %b %d
+
+​
+
+    section Design and Analysis
+
+    Analysis                    :analysis, 2026-10-18, 1d
+
+    Data structure and workflow :struct, 2026-10-19, 2d
+
+​
+
+    section Development
+
+    Account Verification        :veri, 2026-10-20, 2d
+
+    Individual messaging        :indMess, 2026-10-21, 2d
+
+    Group messaging             :grpMess, 2026-10-22, 2d
+
+    Development complete        :complete, 2026-10-24, 1d
+
+​
+
+    section Review & Integration
+
+    Integration and testing     :testing, 2026-10-25, 1d
+
+    Evaluator review            :review, 2026-10-26, 3d
+
+    Final modification         :final, 2026-10-28, 2d
+
+​
+
+    section Delivery
+
+    Delivery                    :crit, delivery, 2026-10-30, 1d
+
+```
+
+​
+
+## 7. Acceptance
+
+1. Authentication: User can register a new account, log in, and maintain the chatting function.
+
+2. Messaging: user can send messages to another user and in a group. 
+
+3. Repository check: All source code and documentation files are pushed to the GitHub repository before November 2, 2026. 
+
+​
+
+
+
+
+
+
+
